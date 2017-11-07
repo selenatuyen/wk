@@ -2,10 +2,48 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
+<%--    <div class="jumbotron">
         <h1>Movie Store</h1>
         <p class="lead">Rent movies</p>
         <p><a href="https://trakt.tv/users/sluttyone" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>--%>
+
+    <div class="row">
+        <h2>AVAILABLE MOVIES</h2>
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+            <LayoutTemplate>
+              <table cellpadding="2" width="640px" border="1" runat="server" id="tblProducts">
+                <tr runat="server">
+                  <th runat="server">Title</th>
+                  <th runat="server">Year</th>
+                  <th runat="server">Director</th>
+                  <th runat="server">Genre</th>
+                </tr>
+                <tr runat="server" id="itemPlaceholder" />
+              </table>
+            </LayoutTemplate>
+            <ItemTemplate>
+              <tr runat="server">
+                <td>
+                  <asp:Label ID="MovieTitle" runat="Server" Text='<%#Eval("Title") %>' />
+                </td>
+                <td>
+                  <asp:Label ID="YearLabel" runat="Server" Text='<%#Eval("Year") %>' />
+                </td>
+                <td valign="top">
+                  <asp:Label ID="DirectorLabel" runat="Server" Text='<%#Eval("Director") %>' />
+                </td>
+                <td>
+                  <asp:Label ID="GenreLabel" runat="server" Text='<%#Eval("Genre") %>' />
+                </td>
+              </tr>
+            </ItemTemplate>
+        </asp:ListView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Title], [Year], [Director], [Genre] FROM [Movies]"></asp:SqlDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+        <p>
+            
+        </p>
     </div>
 
     <div class="row">
