@@ -2,11 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<%--    <div class="jumbotron">
+    <div class="jumbotron">
         <h1>Movie Store</h1>
         <p class="lead">Rent movies</p>
         <p><a href="https://trakt.tv/users/sluttyone" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>--%>
+    </div>
 
     <div class="row">
         <h2>AVAILABLE MOVIES</h2>
